@@ -37,5 +37,8 @@ createApp({
         this.errorMessage = "The number of emails is too high! Please insert a number between 1 and 100"
       }
     }
+  },
+  updated() {
+
   }
 }).mount('#app')
