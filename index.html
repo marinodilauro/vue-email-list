@@ -4,14 +4,61 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <!-- Google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Mandali&family=Vidaloka&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS link -->
+  <!-- Bootstrap CSS link -->
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'
+    integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'>
+  <!-- CSS link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
   <title>vue-email-list</title>
 </head>
 
 <body>
 
   <div id='app'>
-    <h1>Hello World</h1>
-    <p v-for="email in emailList"> {{email}} </p>
+    <div class="container-fluid mt-3">
+
+      <h1>Random emails generator</h1>
+
+      <div class="col-3">
+
+        <label for="emailsNumber" class="form-label">Insert the number of emails to generate (between 1 and 100)</label>
+
+        <div class="d-flex mb-4">
+          <input v-model="numberOfItems" type="number" class="form-control w-25 me-4" name="emailsNumber"
+            placeholder="eg: 7" min="1" max="100">
+          <button @click="generateEmails(numberOfItems)" class="btn btn-outline-primary" type="button"
+            id="button-addon2">Generate</button>
+        </div>
+
+        <div v-if="errorMessage" class="card p-2">
+          <p class="text-danger m-0"> {{errorMessage}} </p>
+        </div>
+
+      </div>
+
+      <div v-if="emailList.length > 0" class="card">
+
+        <div class="card-header">
+          <h3 class="m-0">Emails:</h3>
+        </div>
+
+        <div class="emailContainer d-flex flex-column flex-wrap m-2">
+          <p v-for="email in emailList"> {{email}} </p>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
 
@@ -26,7 +73,7 @@
     crossorigin='anonymous' referrerpolicy='no-referrer'></script>
 
   <!-- JS link -->
-  <script src='./main.js'></script>
+  <script src='./assets/js/main.js'></script>
 
 </body>
 

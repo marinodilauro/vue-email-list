@@ -1,0 +1,19 @@
+body {
+  font-family: "Mandali", sans-serif;
+  background-color: #efefef;
+}
+
+.col-3 {
+  .card {
+    width: 575px;
+  }
+}
+
+.card {
+
+  .emailContainer {
+
+    max-height: 675px;
+
+  }
+}
